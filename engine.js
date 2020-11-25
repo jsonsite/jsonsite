@@ -6,10 +6,11 @@ var sites = require("./sites.js");
 var request = require("sync-request");
 var minify = require("html-minifier").minify;
 var md = require("markdown-it")();
+var validator = require('validator');
 var i = 0;
 var reqsettings = {
   headers: {
-    "user-agent": "example-user-agent"
+    "user-agent": "JSONsite (https://support.glitch.com/t/34718)"
   }
 };
 while (i < urls.length) {

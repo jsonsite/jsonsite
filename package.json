@@ -14,7 +14,8 @@
     "sync-request": "^6.1.0",
     "markdown-it": "^12.0.1",
     "nunjucks": "^3.2.2",
-    "siimple": "^3.3.1"
+    "siimple": "^3.3.1",
+    "validator": "^13.1.17"
   },
   "engines": {
     "node": "12.x"
@@ -27,7 +28,7 @@
     "node",
     "glitch",
     "express",
-    "ejs",
+    "nunjucks",
     "json",
     "markdown"
   ]

@@ -6,6 +6,7 @@ dependencies:
   siimple: 3.3.1
   sync-request: 6.1.0
   tamper: 1.1.0
+  validator: 13.1.17
 packages:
   /@types/concat-stream/1.6.0:
     dependencies:
@@ -855,6 +856,12 @@ packages:
       node: '>= 0.4.0'
     resolution:
       integrity: sha1-n5VxD1CiZ5R7LMwSR0HBAoQn5xM=
+  /validator/13.1.17:
+    dev: false
+    engines:
+      node: '>= 0.10'
+    resolution:
+      integrity: sha512-zL5QBoemJ3jYFb2/j38y7ljhwYGXVLUp8H6W1nVxadnAOvUOytec+L7BHh1oBQ82/TzWXHd+GSaxUWp4lROkLg==
   /vary/1.1.2:
     dev: false
     engines:
@@ -872,3 +879,4 @@ specifiers:
   siimple: ^3.3.1
   sync-request: ^6.1.0
   tamper: ^1.1.0
+  validator: ^13.1.17
