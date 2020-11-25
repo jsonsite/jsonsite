@@ -3,6 +3,7 @@ dependencies:
   html-minifier: 4.0.0
   markdown-it: 12.0.2
   nunjucks: 3.2.2
+  siimple: 3.3.1
   sync-request: 6.1.0
   tamper: 1.1.0
 packages:
@@ -735,6 +736,10 @@ packages:
     dev: false
     resolution:
       integrity: sha512-JvdAWfbXeIGaZ9cILp38HntZSFSo3mWg6xGcJJsd+d4aRMOqauag1C63dJfDw7OaMYwEbHMOxEZ1lqVRYP2OAw==
+  /siimple/3.3.1:
+    dev: false
+    resolution:
+      integrity: sha512-twLAzgtL74sE1fs7GSzdud6zKRGPFe/vTA/SH8YtWtr/gYjNDhozrr0yItoMtM1TMbhPPfS3x5mQ3WSSBcv/yA==
   /source-map/0.6.1:
     dev: false
     engines:
@@ -864,5 +869,6 @@ specifiers:
   html-minifier: ^4.0.0
   markdown-it: ^12.0.1
   nunjucks: ^3.2.2
+  siimple: ^3.3.1
   sync-request: ^6.1.0
   tamper: ^1.1.0

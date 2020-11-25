@@ -1,3 +1,5 @@
+// This file provides metatags and the stylesheets
+const fs = require('fs'); 
 module.exports = function(title, desc, url, image) {
   return `<html lang="en">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -19,6 +21,6 @@ module.exports = function(title, desc, url, image) {
 <meta property="twitter:title" content="${title}">
 <meta property="twitter:description" content="${desc}">
 <meta property="twitter:image" content="${image || ""}">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/siimple@3.3.1/dist/siimple.min.css">
+<style>$fs.readFileSync()</style>
 </head>`;
 };
