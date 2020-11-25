@@ -15,13 +15,72 @@
     <meta property="og:url" content="." />
     <meta property="og:title" content="{{ title }}" />
     <meta property="og:description" content="{{ description }}" />
-    <meta property="og:image" content="${image}" />
+    <meta property="og:image" content="{{ image }}" />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content="." />
     <meta property="twitter:title" content="{{ title }}" />
     <meta property="twitter:description" content="{{ description }}" />
-    <meta property="twitter:image" content="">
+    <meta property="twitter:image" content="{{ image }}" />
   </head>
+  <body>
+    <header>
+      <div
+        class="siimple-navbar siimple-navbar--extra-large siimple-navbar--{{ navbar_color }}"
+      >
+        <a class="siimple-navbar-title">${title}</a>
+        <div class="siimple--float-right">
+          {% for page in pages %}
+          <a class="siimple-navbar-item" href="#{{ page.id }}"
+            >{{ page.title }}</a
+          >
+          {% endfor %}
+        </div>
+      </div>
+
+      <div
+        class="siimple-jumbotron siimple-jumbotron--fluid siimple-jumbotron--{{ jumbotron_color }}"
+      >
+        <div class="siimple-jumbotron-title">{{ title }}</div>
+        <div class="siimple-jumbotron-subtitle">{{ description }}</div>
+      </div>
+    </header>
+    {% for page in pages %}
+    <div
+      id="{{ page.id }}"
+      style="display:none;"
+      class="siimple-content siimple-content--extra-large"
+    >
+      <h3 class="siimple-h3 page-title">{{ page.title }}</h3>
+      <div class="siimple-p">{{ page.content }}</div>
+    </div>
+    {% endfor %}
+
+    <script>
+              var ids = [{% for page in pages %}{% endfor %}];
+              function nav(){if(location.hash.substr(1) == ""){
+         location.hash = "main"
+        }
+        if(!ids.includes(location.hash.substr(1))){
+       var div = document.createElement("div");
+        div.innerHTML = '<h1 class="404-title">Whoops!</h1><br><p class="404-description">That page could not be found. Would you like to go back <a href="#main">home?</a></p>';
+        document.body.appendChild(div);
+        }
+        var i = 0;
+        while(i < ids.length){
+         document.getElementById(ids[i]).setAttribute("style", "display:none;");
+         i++
+        }
+        document.getElementById(location.hash.substr(1)).setAttribute("style", "display:block;");}
+        // Start loading on hash change and on load
+        window.onhashchange = nav;
+        window.addEventListener('DOMContentLoaded', (event) => {
+          nav()
+      });
+    </script>
+    <div class="siimple-footer siimple-footer--${theme.footer_color || "light"}" align="center">
+    ${footer || ""}
+</div>
+  </body>
 </html>
