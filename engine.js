@@ -19,8 +19,9 @@ while (i < urls.length) {
 
   // Parse data
   data = JSON.parse(data);
-  // generate metatags
+  // html wrapper
   html = `<html lang="en"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">`
+  // generate metatags
   html = html + require("./generator/metatags.js")(
     data.title || "",
     data.description || "",
@@ -28,14 +29,16 @@ while (i < urls.length) {
     data.image
   );
   // Generate "pages", really just javascript. pages.js makes the html for pages and logic.js is for css and the js that makes the js work
-  html = `${html}<body><h1>${data.title || ""}</h1>${require("./generator/pages.js")(data.pages)}${require("./generator/logic.js")()}</body>`
+  html = `${html}<body><h1>${data.title || ""}</h1><hr>${require("./generator/pages.js")(data.pages)}${require("./generator/logic.js")()}</body>`
   // Custom CSS and JavaScript
   html =
     html +
     require("./generator/custom.js")(data.javascript || "", data.css || "");
+  
   // Compress HTML to improve speed
   html = require("./generator/minify.js")(html);
-  console.log(html);
+  // Write the data to file
   fs.writeFileSync(`./pages/${sites[urls[i]]}.html`, html);
+  console.log(`Generated ${sites[urls[i]]}.html from ${urls[i]}`)
   i++;
 }

@@ -6,7 +6,7 @@ module.exports = function(page){
   var obj = [];
   while (i < page.length){
     obj.push(page[i].id)
-    html = html + `<div id="${page[i].id}" hidden="true"><h1 class="page-title">${page[i].title}</h1>
+    html = html + `<div id="${page[i].id}" hidden="true"><h3 class="page-title">${page[i].title}</h3>
     ${md.render(page[i].content)}
     </div>
     `
