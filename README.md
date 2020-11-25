@@ -60,6 +60,6 @@ Settings/content for your site:
 }
 ```
 
-Want to add your JSONsite? Make a pull request for `sites.js` and make it with the following format:
-`"https://domain.tld/path/to/file.json": "slug"`
-If your 
+Want to add your JSONsite? Make a pull request for `sites.js` and make it with the following format:<br>
+`"https://domain.tld/path/to/file.json": "mysite"`<br><br>
+If the key is called `https://domain.tld/path/to/file.json` and the value is called `mysite`, then your site would be located at `jsonsite.glitch.me/site/mysite` or `jsonsite.herokuapp.com/site/mysite` and data would be pulled from `https://domain.tld/path/to/file.json`.
