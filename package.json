@@ -11,7 +11,8 @@
     "express": "^4.17.1",
     "ejs": "^3.1.5",
     "html-minifier": "^4.0.0",
-    "tamper": "^1.1.0"
+    "tamper": "^1.1.0",
+    "sync-request": "^6.1.0"
   },
   "engines": {
     "node": "12.x"
