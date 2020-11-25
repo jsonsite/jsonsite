@@ -1,5 +1,5 @@
 module.exports = function(title, desc, url, image) {
-  return `<!-- Generated with metatags.io! --><!-- Primary Meta Tags -->
+  return `<head><!-- Generated with metatags.io! --><!-- Primary Meta Tags -->
 <title>${title}</title>
 <meta name="title" content="${title}">
 <meta name="description" content="${desc}">
@@ -16,5 +16,6 @@ module.exports = function(title, desc, url, image) {
 <meta property="twitter:url" content="${url}">
 <meta property="twitter:title" content="${title}">
 <meta property="twitter:description" content="${desc}">
-<meta property="twitter:image" content="${image || ""}">`;
+<meta property="twitter:image" content="${image || ""}">
+</head>`;
 };

@@ -27,9 +27,7 @@ while (i < urls.length) {
     data.image
   );
   // Generate "pages", really just javascript
-  html = html + require("./generator/pages.js")(data.pages);
-  // The main page switcher.
-  html = html + require("./generator/logic.js")();
+  html = `${html}<body><h1>${data.title || ""}</h1>${require("./generator/pages.js")(data.pages)}${require("./generator/logic.js")()}</body>`
   // Custom CSS and JavaScript
   html =
     html +

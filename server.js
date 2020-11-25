@@ -15,7 +15,7 @@ app.get("/site/:page", (req, res) => {
   
   console.log(`./pages/${req.params.page}.html`)
   if (fs.existsSync(`./pages/${req.params.page}.html`)) {
-    res.sendFile(`./pages/${req.params.page}.html`)
+    res.sendFile(__dirname + `/pages/${req.params.page}.html`)
   } else {
     res.send("Whoops! That JSONsite was not found. Sorry :/").status(404)
   }
