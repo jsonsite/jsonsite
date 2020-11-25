@@ -13,5 +13,12 @@ while (i < urls.length) {
   var data = request("GET", urls[i], reqsettings)
     .getBody()
     .toString();
+  data = JSON.parse(data)
+  ejs.renderFile("./templates/index.ejs", data, {}, function(err, str) {
+  console.log(err);
+  console.log(str);
+});
+
   i++;
+  
 }

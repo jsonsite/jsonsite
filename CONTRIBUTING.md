@@ -11,4 +11,4 @@ Here are the steps to make it work (in order):
 - footer.js will add a footer, like `Copyright User 2020` or `Made with JSONsite with ♥`
 - minify.js will minify the HTML to improve the speed of the webpage loading
 
-It's really complicated because I made this in like ~12 hours so, eh. I plan on rewritting this with EJS later but 
+It's really complicated because I made this in like ~12 hours so, eh. I plan on rewritting this with nunjucks later but `¯\_(ツ)_/¯`
