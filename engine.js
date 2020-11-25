@@ -19,10 +19,8 @@ while (i < urls.length) {
 
   // Parse data
   data = JSON.parse(data);
-  // html wrapper
-  html = `<html lang="en"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">`
-  // generate metatags
-  html = html + require("./generator/metatags.js")(
+  // generate metatags and add the siimple api
+  html = html + require("./generator/metatags-style.js")(
     data.title || "",
     data.description || "",
     `${config.hostname}/${sites[urls[i]]}`,

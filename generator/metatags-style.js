@@ -1,5 +1,7 @@
 module.exports = function(title, desc, url, image) {
-  return `<head><!-- Generated with metatags.io! --><!-- Primary Meta Tags -->
+  return `<html lang="en">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <head><!-- Generated with metatags.io! --><!-- Primary Meta Tags -->
 <title>${title}</title>
 <meta name="title" content="${title}">
 <meta name="description" content="${desc}">
