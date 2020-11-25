@@ -9,6 +9,9 @@ app.use(express.static("public"));
 app.get("/", (req, res) => {
   res.render("index", { title: "Welcome!" });
 });
+app.get("/", (req, res) => {
+  res.send()
+});
 
 const listener = app.listen(process.env.PORT, () => {
   console.log("Your app is listening on port " + listener.address().port);

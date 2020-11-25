@@ -16,10 +16,7 @@ while (i < urls.length) {
     .getBody()
     .toString();
   var html = "";
-if(!data.title || !data.description || typeof data.pages !== "object"){
-  console.error(`Skipping ${urls[i]} because a required field was missing...`)
-  continue;
-}
+
   // Parse data
   data = JSON.parse(data);
   // generate metatags
@@ -37,6 +34,9 @@ if(!data.title || !data.description || typeof data.pages !== "object"){
   html =
     html +
     require("./generator/custom.js")(data.javascript || "", data.css || "");
+  // Compress HTML to improve speed
+  html = require("./generator/minify.js")(html);
   console.log(html);
+  fs.writeFileSync(`./pages/${sites[urls[i]]}.html`, html);
   i++;
 }
