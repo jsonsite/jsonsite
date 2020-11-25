@@ -24,6 +24,7 @@ while (i < urls.length) {
     `${config.hostname}/${sites[urls[i]]}`,
     data.image
   );
+  data = require("./generator/pages.js")(data.pages)
   console.log(data);
   i++;
 }
