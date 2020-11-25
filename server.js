@@ -31,6 +31,6 @@ app.get("/raw/:page", (req, res) => {
     res.send("Whoops! That JSONsite was not found. Sorry :/").status(404);
   }
 });
-const listener = app.listen(process.env.PORT, () => {
+const listener = app.listen(3000, () => {
   console.log("Your app is listening on port " + listener.address().port);
 });
