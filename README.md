@@ -46,6 +46,11 @@ Settings/content for your site:
   "description": "[Description of the website.]",
   "image": "[Image for website, Only used for image.]",
   "author": "[Author who made the website (a.k.a your name)]",
+  "theme": {
+    "navbar-color": "dark",
+    "jumbotron-color": "light",
+    "footer-color": "light"
+  },
   "pages": [
     {
       "title": "[Title of Page]",
@@ -58,7 +63,11 @@ Settings/content for your site:
   "css": "/* Custom CSS for styling elements. */"
 }
 ```
-**Note:** Pages are pages for your site.
+**Notes:**
+- Theme colors are words, not color codes. You can see all of the color codes [here](https://docs.siimple.xyz/getting-started/theming.html). These are the default and are not required.
+- Pages are pages and they support Markdown and HTML.
+
+
 Want to add your JSONsite? Make a pull request for `sites.js` and make it with the following format:<br>
 `"https://domain.tld/path/to/file.json": "mysite"`<br><br>
 If the key is called `https://domain.tld/path/to/file.json` and the value is called `mysite`, then your site would be located at `jsonsite.glitch.me/site/mysite` or `jsonsite.herokuapp.com/site/mysite` and data would be pulled from `https://domain.tld/path/to/file.json`.
