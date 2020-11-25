@@ -29,8 +29,8 @@ while (i < urls.length) {
     data.image
   );
   // Generate "pages", really just javascript. pages.js makes the html for pages and logic.js is for css and the js that makes the js work
-  html = `${html}<body><h1 class="siimple-h1">${data.title || ""}</h1><p class="siimple-p">
-  ${data.description}</p><hr>${require("./generator/pages.js")(data.pages)}${require("./generator/logic.js")()}</body>`
+  html = `${html}<body><header>${require("./generator/navbar.js")(data.pages, data.title, data.description)}</header>
+  ${require("./generator/pages.js")(data.pages)}${require("./generator/logic.js")()}</body>`
   // Custom CSS and JavaScript
   html =
     html +
