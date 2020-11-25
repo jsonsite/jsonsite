@@ -24,6 +24,16 @@ while (i < urls.length) {
     data.pages[y].content = md.render(data.pages[y].content);
     y++;
   }
+  var template = ""
+  // If template and if it is valid, use it!
+if (data.template && validator.isURL(data.template)){
+template = request("GET", `https://jsonsite.github.io/templates/${data.template}`, reqsettings)
+    .getBody()
+    .toString();
+} else {
+  // Else use the default.
+template = fs.readFileSync("./templates/index.html", "utf8")
+}
   nunjucks.configure({ autoescape: true });
   data = Object.assign(data, {
     siimple: fs.readFileSync(
