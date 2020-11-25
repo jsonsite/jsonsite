@@ -1,9 +1,42 @@
 <!DOCTYPE html>
 <html>
   <head>
-    
+    <html lang="en">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <head><!-- Generated with metatags.io! --><!-- Primary Meta Tags -->
+<title><%= data.title %></title>
+<meta name="title" content="<%= data.title %>">
+<meta name="description" content="<%= data.description %>">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="<%= config.hostname + "/" + sites[urls[i]] %>">
+<meta property="og:title" content="<%= data.title %>">
+<meta property="og:description" content="<%= data.description %>">
+<meta property="og:image" content="<%= data.image %>">
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="<%= config.hostname + "/" + sites[urls[i]] %>">
+<meta property="twitter:title" content="<%= data.title %>">
+<meta property="twitter:description" content="<%= data.description %>">
+<meta property="twitter:image" content="<%= data.image %>">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/siimple@3.3.1/dist/siimple.min.css">
+</head>
   </head>
   <body>
+    <header>
+      <div class="siimple-navbar siimple-navbar--extra-large siimple-navbar--dark">
+    <a class="siimple-navbar-title"><%= data.title %></a>
+    <div class="siimple--float-right">
+      <% var i = 0; %>
+      <%=  while (i < data.page.length){  %>
+   
+    <a class="siimple-navbar-item" href="#<%= data.pages[i].id %>"><%= data.page[i].title %></a>
+    
+ <%=  i++ } %>
+      </header>
+        
     <footer>
     </footer>
   </body>
