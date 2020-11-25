@@ -10,6 +10,12 @@ and JSONsite will fetch it an convert it into a full Website. Your JSON file cou
   "description": "The amazing website of John Doe",
   "image": "https://cdn.glitch.com/1788ed8a-5cc6-45e9-a3b6-18d6457af699%2Fundraw_profile_pic_ic5t.png?v=1606325421049",
   "author": "John Doe",
+  "template": "default.njk",
+  "theme": {
+    "navbar-color": "dark",
+    "jumbotron-color": "light",
+    "footer-color": "light"
+  },
   "pages": [
     {
       "title": "Main",
@@ -46,6 +52,7 @@ Settings/content for your site:
   "description": "[Description of the website.]",
   "image": "[Image for website, Only used for image.]",
   "author": "[Author who made the website (a.k.a your name)]",
+  "template": "[path/to/template]",
   "theme": {
     "navbar-color": "dark",
     "jumbotron-color": "light",
@@ -63,10 +70,12 @@ Settings/content for your site:
   "css": "/* Custom CSS for styling elements. */"
 }
 ```
-**Notes:**
-- Theme colors are words, not color codes. You can see all of the color codes [here](https://docs.siimple.xyz/getting-started/theming.html). These are the default and are not required.
-- Pages are pages and they support Markdown and HTML.
 
+**Notes:**
+
+- Theme colors are words, not color codes. You can see all of the color codes [here](https://docs.siimple.xyz/getting-started/theming.html). These are the default and **is required**.
+- Pages are pages and they support Markdown and HTML.
+- Templates can comes from [jsonsite/templates](https://github.com/jsonsite/templates) for security reasons. If the template URL is [jsonsite.github.io/templates/default.njk](https://jsonsite.github.io/templates/default.njk), then the value would be `default.njk`.
 
 Want to add your JSONsite? Make a pull request for `sites.js` and make it with the following format:<br>
 `"https://domain.tld/path/to/file.json": "mysite"`<br><br>
