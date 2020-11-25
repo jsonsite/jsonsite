@@ -1,3 +1,3 @@
 module.exports = {
-  hostname:"https://jsonsite.glitch.me"
-}
+  hostname: "https://jsonsite.glitch.me"
+};

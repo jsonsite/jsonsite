@@ -27,38 +27,38 @@
   <body>
     <header>
       <div
-        class="siimple-navbar siimple-navbar--extra-large siimple-navbar--{{ navbar_color }}"
+        class="siimple-navbar siimple-navbar--extra-large siimple-navbar--{{ theme.navbar_color | safe }}"
       >
-        <a class="siimple-navbar-title">${title}</a>
+        <a class="siimple-navbar-title">{{ title | safe }}</a>
         <div class="siimple--float-right">
           {% for page in pages %}
-          <a class="siimple-navbar-item" href="#{{ page.id }}"
-            >{{ page.title }}</a
+          <a class="siimple-navbar-item" href="#{{ page.id | safe }}"
+            >{{ page.title | safe }}</a
           >
           {% endfor %}
         </div>
       </div>
 
       <div
-        class="siimple-jumbotron siimple-jumbotron--fluid siimple-jumbotron--{{ jumbotron_color }}"
+        class="siimple-jumbotron siimple-jumbotron--fluid siimple-jumbotron--{{ theme.jumbotron_color | safe }}"
       >
-        <div class="siimple-jumbotron-title">{{ title }}</div>
-        <div class="siimple-jumbotron-subtitle">{{ description }}</div>
+        <div class="siimple-jumbotron-title">{{ title | safe }}</div>
+        <div class="siimple-jumbotron-subtitle">{{ description | safe }}</div>
       </div>
     </header>
     {% for page in pages %}
     <div
-      id="{{ page.id }}"
+      id="{{ page.id | safe }}"
       style="display:none;"
       class="siimple-content siimple-content--extra-large"
     >
-      <h3 class="siimple-h3 page-title">{{ page.title }}</h3>
-      <div class="siimple-p">{{ page.content }}</div>
+      <h3 class="siimple-h3 page-title">{{ page.title | safe }}</h3>
+      <div class="siimple-p">{{ page.content | safe }}</div>
     </div>
     {% endfor %}
 
     <script>
-              var ids = [{% for page in pages %}{% endfor %}];
+              var ids = [{% for page in pages %}"{{page.id | safe }}",{% endfor %}];
               function nav(){if(location.hash.substr(1) == ""){
          location.hash = "main"
         }
@@ -79,8 +79,10 @@
           nav()
       });
     </script>
-    <div class="siimple-footer siimple-footer--${theme.footer_color || "light"}" align="center">
-    ${footer || ""}
+    <div class="siimple-footer siimple-footer--{{ theme.footer_color | safe }}" align="center">
+   {{ footer }}
 </div>
+    <script>{{ javascript | safe }}</script>
+    <style>{{ siimple | safe }}{{ css | safe }}</style>
   </body>
 </html>
