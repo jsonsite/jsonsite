@@ -42,7 +42,7 @@ template = fs.readFileSync("./templates/index.html", "utf8")
     )
   });
   var res = nunjucks.renderString(
-    fs.readFileSync("./templates/index.html", "utf8"),
+    template,
     data
   );
   res = minify(res, {
