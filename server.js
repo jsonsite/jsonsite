@@ -9,7 +9,7 @@ app.set("view engine", "ejs");
 app.use(express.static("public"));
 
 app.get("/", (req, res) => {
-  res.sendFile(__dirname + "/src/indec.htm;")
+  res.sendFile(__dirname + "/src/index.html")
 });
 app.get("/site/:page", (req, res) => {
   res.set('Cache-Control', 'max-age=3600');
