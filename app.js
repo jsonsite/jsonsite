@@ -29,7 +29,7 @@ while (i < urls.length) {
     .toString();
 
   data = JSON.parse(data);
-  while (y < data) {
+  while (y < data.pages.length) {
     data.pages[y].content = md.render(data.pages[y].content);
     y++;
   }
