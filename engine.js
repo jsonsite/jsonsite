@@ -14,6 +14,9 @@ var reqsettings = {
   }
 };
 while (i < urls.length) {
+  if(!fs.existsSync(`./pages/${sites[urls[i]]}`)){
+fs.mkdirSync(`./pages/${sites[urls[i]]}`)
+}
   var y = 0;
   var data = request("GET", urls[i], reqsettings)
     .getBody()
@@ -52,7 +55,7 @@ template = fs.readFileSync("./templates/index.html", "utf8")
     minifyJS: true,
     minifyCSS: true
   });
-  fs.writeFileSync(`./pages/${sites[urls[i]]}.html`, res);
-  console.log(`Generated ${sites[urls[i]]}.html from ${urls[i]}`);
+  fs.writeFileSync(`./pages/${sites[urls[i]]}/index.html`, res);
+  console.log(`Generated ${sites[urls[i]]}/index.html from ${urls[i]}`);
   i++;
 }
