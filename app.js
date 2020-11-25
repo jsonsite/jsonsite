@@ -6,7 +6,7 @@ var sites = require("./sites.js");
 var request = require("sync-request");
 var minify = require("html-minifier").minify;
 var md = require("markdown-it")();
-var validator = require('validator');
+var validator = require("validator");
 var i = 0;
 var reqsettings = {
   headers: {
@@ -14,9 +14,12 @@ var reqsettings = {
   }
 };
 while (i < urls.length) {
-  if(!fs.existsSync(`./pages/site/${sites[urls[i]]}/`)){
-fs.mkdirSync(`./pages/site/${sites[urls[i]]}/`)
-}
+  if (!fs.existsSync(`./pages/site`)) {
+    fs.mkdirSync(`./pages/site/`);
+  }
+  if (!fs.existsSync(`./pages/site/${sites[urls[i]]}/`)) {
+    fs.mkdirSync(`./pages/site/${sites[urls[i]]}/`);
+  }
   var y = 0;
   var data = request("GET", urls[i], reqsettings)
     .getBody()
@@ -27,16 +30,20 @@ fs.mkdirSync(`./pages/site/${sites[urls[i]]}/`)
     data.pages[y].content = md.render(data.pages[y].content);
     y++;
   }
-  var template = ""
+  var template = "";
   // If template and if it is valid, use it!
-if (data.template && validator.isURL(data.template)){
-template = request("GET", `https://jsonsite.github.io/templates/${data.template}`, reqsettings)
-    .getBody()
-    .toString();
-} else {
-  // Else use the default.
-template = fs.readFileSync("./templates/index.html", "utf8")
-}
+  if (data.template && validator.isURL(data.template)) {
+    template = request(
+      "GET",
+      `https://jsonsite.github.io/templates/${data.template}`,
+      reqsettings
+    )
+      .getBody()
+      .toString();
+  } else {
+    // Else use the default.
+    template = fs.readFileSync("./templates/index.html", "utf8");
+  }
   nunjucks.configure({ autoescape: true });
   data = Object.assign(data, {
     siimple: fs.readFileSync(
@@ -44,10 +51,7 @@ template = fs.readFileSync("./templates/index.html", "utf8")
       "utf8"
     )
   });
-  var res = nunjucks.renderString(
-    template,
-    data
-  );
+  var res = nunjucks.renderString(template, data);
   res = minify(res, {
     useShortDoctype: true,
     removeComments: true,
@@ -59,4 +63,7 @@ template = fs.readFileSync("./templates/index.html", "utf8")
   console.log(`Generated ${sites[urls[i]]}/index.html from ${urls[i]}`);
   i++;
 }
-fs.writeFileSync(`./pages/index.html`, fs.readFileSync("./views/index.html", "utf8"));
+fs.writeFileSync(
+  `./pages/index.html`,
+  fs.readFileSync("./views/index.html", "utf8")
+);

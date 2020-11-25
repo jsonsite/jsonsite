@@ -1,1 +1,0 @@
-web: mkdir pages && node engine.js && node server.js
