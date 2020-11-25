@@ -47,7 +47,6 @@ Settings/content for your site:
   "image": "[Image for website, Only used for image.]",
   "author": "[Author who made the website (a.k.a your name)]",
   "pages": [
-    // The pages on the website. Only one object per Page
     {
       "title": "[Title of Page]",
       "id": "[ID of the page. Please make sure one page contains a 'main' id.]",
@@ -59,7 +58,7 @@ Settings/content for your site:
   "css": "/* Custom CSS for styling elements. */"
 }
 ```
-
+**Note:** Pages are pages for your site.
 Want to add your JSONsite? Make a pull request for `sites.js` and make it with the following format:<br>
 `"https://domain.tld/path/to/file.json": "mysite"`<br><br>
 If the key is called `https://domain.tld/path/to/file.json` and the value is called `mysite`, then your site would be located at `jsonsite.glitch.me/site/mysite` or `jsonsite.herokuapp.com/site/mysite` and data would be pulled from `https://domain.tld/path/to/file.json`.
