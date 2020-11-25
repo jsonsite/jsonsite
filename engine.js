@@ -20,24 +20,34 @@ while (i < urls.length) {
   // Parse data
   data = JSON.parse(data);
   // generate metatags and add the siimple api
-  html = html + require("./generator/metatags-style.js")(
-    data.title || "",
-    data.description || "",
-    `${config.hostname}/${sites[urls[i]]}`,
-    data.image
-  );
+  html =
+    html +
+    require("./generator/metatags-style.js")(
+      data.title || "",
+      data.description || "",
+      `${config.hostname}/${sites[urls[i]]}`,
+      data.image
+    );
   // Generate "pages", really just javascript. pages.js makes the html for pages and logic.js is for css and the js that makes the js work
-  html = `${html}<body><header>${require("./generator/navbar.js")(data.pages, data.title, data.description)}</header>
-  ${require("./generator/pages.js")(data.pages)}${require("./generator/logic.js")()}</body>`
+  html = `${html}<body><header>${require("./generator/navbar.js")(
+    data.pages,
+    data.title,
+    data.description,
+    data.theme
+  )}</header>
+  ${require("./generator/pages.js")(
+    data.pages
+  )}${require("./generator/logic.js")()}</body>`;
   // Custom CSS and JavaScript
   html =
     html +
-    require("./generator/custom.js")(data.javascript || "", data.css || "") + require("./generator/footer.js")(data.footer);
-  
+    require("./generator/custom.js")(data.javascript || "", data.css || "") +
+    require("./generator/footer.js")(data.footer, data.theme);
+
   // Compress HTML to improve speed
   html = require("./generator/minify.js")(html);
   // Write the data to file
   fs.writeFileSync(`./pages/${sites[urls[i]]}.html`, html);
-  console.log(`Generated ${sites[urls[i]]}.html from ${urls[i]}`)
+  console.log(`Generated ${sites[urls[i]]}.html from ${urls[i]}`);
   i++;
 }
