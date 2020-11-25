@@ -3,15 +3,16 @@ var config = require("./config.js");
 var sites = require("./sites.js");
 var request = require("sync-request");
 const fs = require("fs");
+var reqsettings = {
+    headers: {
+      "user-agent": "example-user-agent"
+    }
+  }
 var i = 0;
 // Loop through all of the sites and get data
 while (i < urls.length) {
   // Fetch site
-  var data = request("GET", urls[i], {
-    headers: {
-      "user-agent": "example-user-agent"
-    }
-  })
+  var data = request("GET", urls[i], reqsettings)
     .getBody()
     .toString();
   // Parse data

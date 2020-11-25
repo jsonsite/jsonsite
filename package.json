@@ -12,7 +12,8 @@
     "ejs": "^3.1.5",
     "html-minifier": "^4.0.0",
     "tamper": "^1.1.0",
-    "sync-request": "^6.1.0"
+    "sync-request": "^6.1.0",
+    "markdown-it": "^12.0.1"
   },
   "engines": {
     "node": "12.x"
