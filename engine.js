@@ -34,7 +34,7 @@ while (i < urls.length) {
   // Custom CSS and JavaScript
   html =
     html +
-    require("./generator/custom.js")(data.javascript || "", data.css || "");
+    require("./generator/custom.js")(data.javascript || "", data.css || "") + require("./generator/footer.js")(data.footer);
   
   // Compress HTML to improve speed
   html = require("./generator/minify.js")(html);

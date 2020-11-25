@@ -18,6 +18,6 @@ module.exports = function() {
   window.onhashchange = nav;
   window.addEventListener('DOMContentLoaded', (event) => {
     nav()
-});</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/siimple@3.3.1/dist/siimple.min.css">
+});</script>
 `;
 };

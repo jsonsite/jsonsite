@@ -9,10 +9,11 @@ app.set("view engine", "ejs");
 app.use(express.static("public"));
 
 app.get("/", (req, res) => {
-  res.render("index", { title: "Welcome!" });
+  res.sendFile(__dirname + "/src/indec.htm;")
 });
 app.get("/site/:page", (req, res) => {
-  
+  res.set('Cache-Control', 'max-age=3600');
+
   console.log(`./pages/${req.params.page}.html`)
   if (fs.existsSync(`./pages/${req.params.page}.html`)) {
     res.sendFile(__dirname + `/pages/${req.params.page}.html`)
