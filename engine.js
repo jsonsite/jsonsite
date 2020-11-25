@@ -20,13 +20,14 @@ while (i < urls.length) {
   // Parse data
   data = JSON.parse(data);
   // generate metatags
-  html = require("./generator/metatags.js")(
+  html = `<html lang="en"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">`
+  html = html + require("./generator/metatags.js")(
     data.title || "",
     data.description || "",
     `${config.hostname}/${sites[urls[i]]}`,
     data.image
   );
-  // Generate "pages", really just javascript
+  // Generate "pages", really just javascript. pages.js makes the html for pages and logic.js is for css and the js that makes the js work
   html = `${html}<body><h1>${data.title || ""}</h1>${require("./generator/pages.js")(data.pages)}${require("./generator/logic.js")()}</body>`
   // Custom CSS and JavaScript
   html =
