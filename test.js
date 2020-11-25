@@ -1,4 +1,5 @@
-const ejs = require("ejs");
+const nunjucks = require("nunjucks");
+const fs = require("fs")
 var urls = Object.keys(require("./sites.js"));
 var config = require("./config.js");
 var sites = require("./sites.js");
@@ -13,11 +14,10 @@ while (i < urls.length) {
   var data = request("GET", urls[i], reqsettings)
     .getBody()
     .toString();
+
   data = JSON.parse(data)
-  ejs.renderFile("./templates/index.ejs", data, {}, function(err, str) {
-  console.log(err);
-  console.log(str);
-});
+nunjucks.configure({ autoescape: true });
+console.log(nunjucks.renderString(fs.readFileSync("./templates/index.html", "utf8"), data));
 
   i++;
   
