@@ -28,7 +28,7 @@ and JSONsite will fetch it an convert it into a full Website. Your JSON file cou
     }
   ],
   "footer": "&copy; 2020 John Doe. All Rights Reserved.",
-  "javascript": "console.log('Oooh look, custom JavaScript!')",
+  "javascript": "console.log('Oooh look, custom JavaScript!');",
   "css": "/* You can put custom CSS here! */"
 }
 ```
@@ -36,5 +36,30 @@ and JSONsite will fetch it an convert it into a full Website. Your JSON file cou
 And it will generate something like this:
 ![Example of JSONsite](https://file.coffee/u/tpIhNT-8lG.png)
 
-All on one page, one site.
+All on one page, one site. The "pages" are switched are JavaScript, but since they are all on one page, it is **super** fast.
 
+Settings/content for your site:
+
+```json
+{
+  "title": "[Title of Website]",
+  "description": "[Description of the website.]",
+  "image": "[Image for website, Only used for image.]",
+  "author": "[Author who made the website (a.k.a your name)]",
+  "pages": [
+    // The pages on the website. Only one object per Page
+    {
+      "title": "[Title of Page]",
+      "id": "[ID of the page. Please make sure one page contains a 'main' id.]",
+      "content": "[Content of page. Markdown Supported.]"
+    }
+  ],
+  "footer": "[Footer, such as 'Made with ♥ by John' or 'Copyright User 2020.']",
+  "javascript": "/* Custom JavaScript for stuff like Google analytics */",
+  "css": "/* Custom CSS for styling elements. */"
+}
+```
+
+Want to add your JSONsite? Make a pull request for `sites.js` and make it with the following format:
+`"https://domain.tld/path/to/file.json": "slug"`
+If your 
