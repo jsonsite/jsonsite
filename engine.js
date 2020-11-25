@@ -25,7 +25,10 @@ while (i < urls.length) {
     `${config.hostname}/${sites[urls[i]]}`,
     data.image
   );
+  // Generate "pages", really just javascript
   html = html + require("./generator/pages.js")(data.pages)
+  // The main page switcher.
+  html = html + require("./generator/logic.js")()
   console.log(html)
   i++;
 }
