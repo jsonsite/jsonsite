@@ -50,7 +50,7 @@ while (i < urls.length) {
     // Else use the default.
     template = fs.readFileSync("./templates/index.html", "utf8");
   }
-  nunjucks.configure({ autoescape: true });
+  nunjucks.configure({ autoescape: false });
   data = Object.assign(data, {
     siimple: fs.readFileSync(
       "node_modules/siimple/dist/siimple.min.css",
