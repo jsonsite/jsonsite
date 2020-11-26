@@ -27,7 +27,7 @@
   <body>
     <header>
       <div
-        class="siimple-navbar siimple-navbar--extra-large siimple-navbar--{{ theme.navbar_color | safe }}"
+        class="siimple-navbar siimple-navbar--extra-large siimple-navbar--{{ theme.navbar_color or 'dark' | safe }}"
       >
         <a class="siimple-navbar-title">{{ title | safe }}</a>
         <div class="siimple--float-right">
@@ -40,7 +40,7 @@
       </div>
 
       <div
-        class="siimple-jumbotron siimple-jumbotron--fluid siimple-jumbotron--{{ theme.jumbotron_color | safe }}"
+        class="siimple-jumbotron siimple-jumbotron--fluid siimple-jumbotron--{{ theme.jumbotron_color or 'light' | safe }}"
       >
         <div class="siimple-jumbotron-title">{{ title | safe }}</div>
         <div class="siimple-jumbotron-subtitle">{{ description | safe }}</div>
@@ -91,7 +91,7 @@ if ('serviceWorker' in navigator) {
           nav()
       });
     </script>
-    <div class="siimple-footer siimple-footer--{{ theme.footer_color | safe }}" align="center">
+    <div class="siimple-footer siimple-footer--{{ theme.footer_color or 'light' | safe }}" align="center">
    {{ footer | safe }}
 </div>
     <script>{{ javascript | safe }}</script>

@@ -73,7 +73,7 @@ Settings/content for your site:
 
 **Notes:**
 
-- Theme colors are words, not color codes. You can see all of the color codes [here](https://docs.siimple.xyz/getting-started/theming.html). These are the default and **is required**.
+- Theme colors are words, not color codes. You can see all of the color codes [here](https://docs.siimple.xyz/getting-started/theming.html). These are the default and **is not required**.
 - Pages are pages and they support Markdown and HTML.
 - Templates can comes from [jsonsite/templates](https://github.com/jsonsite/templates) for security reasons. If the template URL is [jsonsite.github.io/templates/default.njk](https://jsonsite.github.io/templates/default.njk), then the value would be `default.njk`.
 
