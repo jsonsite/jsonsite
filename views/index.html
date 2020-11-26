@@ -53,8 +53,24 @@
     <div class="siimple-h1">JSONsite</div>
     <p>
       JSONsite allows you to create sites from one JSON file. See the
-      <a href="https://github.com/jsonsite/jsonsite#readme" class="siimple-link">GitHub repo</a> for
-      more info.<br /><br />(full homepage coming soon!)
+      <a href="https://github.com/jsonsite/jsonsite#readme" class="siimple-link"
+        >GitHub repo</a
+      >
+      for more info.<br /><br />(full homepage coming soon!)
     </p>
   </div>
+  <script>
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker
+        .register("/sw.js", { scope: location.pathname })
+        .then(reg => {
+          // registration worked
+          console.log("Registration succeeded. Scope is " + reg.scope);
+        })
+        .catch(error => {
+          // registration failed
+          console.log("Registration failed with " + error);
+        });
+    }
+  </script>
 </body>

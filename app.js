@@ -70,3 +70,7 @@ fs.writeFileSync(
   `./pages/index.html`,
   fs.readFileSync("./views/index.html", "utf8")
 );
+fs.writeFileSync(
+  `./pages/sw.js`,
+  fs.readFileSync("./includes/sw.js", "utf8")
+);
