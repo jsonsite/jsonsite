@@ -9,4 +9,4 @@ JSONsite allows you to take a JSON file and turn it into a SPA with mini pages.
 ```
 3. Merge the changes back into the repo.
 
-If your JSONsite is accpeted (which it most likely will), JSONsite will fetch the JSON data from `https://domain.tld/site.json` and then your site will be avaible ar
+If your JSONsite is accpeted (which it most likely will), JSONsite will fetch the JSON data from `https://domain.tld/site.json` and then your site will be available at jsonsite.vercel.app/site/myawesomesite
