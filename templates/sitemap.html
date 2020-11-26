@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+     <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/siimple@3.3.1/dist/siimple.min.css"
+  />
+  </head>
+  <body>
+    <div class="siimple-content siimple-content--extra-large">
+      <div class="siimple-h1">JSONsite</div>
+    {% for site in sites %}
+      {{ site.title }}
+      {% endfor %}
+    </div>
+  </body>
+</html>
