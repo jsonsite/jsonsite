@@ -17,6 +17,9 @@ while (i < urls.length) {
   if (!fs.existsSync(`./pages/`)) {
     fs.mkdirSync(`./pages/`);
   }
+  if (!fs.existsSync(`./pages/sites/`)) {
+    fs.mkdirSync(`./pages/sites/`);
+  }
   if (!fs.existsSync(`./pages/site`)) {
     fs.mkdirSync(`./pages/site/`);
   }
@@ -70,7 +73,4 @@ fs.writeFileSync(
   `./pages/index.html`,
   fs.readFileSync("./views/index.html", "utf8")
 );
-fs.writeFileSync(
-  `./pages/sw.js`,
-  fs.readFileSync("./includes/sw.js", "utf8")
-);
+fs.writeFileSync(`./pages/sw.js`, fs.readFileSync("./includes/sw.js", "utf8"));
