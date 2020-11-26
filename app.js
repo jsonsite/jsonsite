@@ -17,9 +17,6 @@ while (i < urls.length) {
   if (!fs.existsSync(`./pages/`)) {
     fs.mkdirSync(`./pages/`);
   }
-  if (!fs.existsSync(`./pages/sites/`)) {
-    fs.mkdirSync(`./pages/sites/`);
-  }
   if (!fs.existsSync(`./pages/site`)) {
     fs.mkdirSync(`./pages/site/`);
   }
