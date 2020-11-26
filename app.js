@@ -5,7 +5,10 @@ var config = require("./config.js");
 var sites = require("./sites.js");
 var request = require("sync-request");
 var minify = require("html-minifier").minify;
-var md = require("markdown-it")();
+var md = require("markdown-it")({
+html: true,
+typographer: true
+});
 var validator = require("validator");
 var i = 0;
 var reqsettings = {
